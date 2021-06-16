@@ -105,7 +105,7 @@
         "location": "[resourceGroup().location]",
         "rgname": "[resourceGroup().id]",
         "vnetname": "[parameters('virtualNetworkName')]",
-        "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), /virtualNetworks',variables('vnetname'))]",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetname'))]",
         "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
@@ -116,7 +116,7 @@
                 "properties": {
                     "addressPrefix": "[if(equals(parameters('subnet0Prefix'), 'None'), json('null'), parameters('subnet0Prefix'))]",
                     "networkSecurityGroup": {
-                            "id": "[resourceId(parameters('virtualNetworkResourceGroup'), /networkSecurityGroups', parameters('nsgName'))]"
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
                     }
                 }
             },
@@ -137,7 +137,7 @@
                 "properties": {
                     "addressPrefix": "[parameters('subnetLBPrefix')]",
                     "routeTable": {
-                        "id": "[resourceId(parameters('virtualNetworkResourceGroup'), /routeTables', parameters('udrName'))]"
+                        "id": "[resourceId('Microsoft.Network/routeTables', parameters('udrName'))]"
                     }
                 }
             }
@@ -171,7 +171,7 @@
             "properties": {
                 "addressPrefix": "[if(equals(parameters('subnet0Prefix'), 'None'), json('null'), parameters('subnet0Prefix'))]",
                 "networkSecurityGroup": {
-                    "id": "[resourceId(parameters('virtualNetworkResourceGroup'), /networkSecurityGroups', parameters('nsgName'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
                 }
             }
         },
@@ -185,7 +185,7 @@
                 "addressPrefix": "[if(equals(parameters('subnet1Prefix'), 'None'), json('null'), parameters('subnet1Prefix'))]"
             },
             "dependsOn": [
-                "[resourceId(parameters('virtualNetworkResourceGroup'), /virtualNetworks/subnets', variables('vnetname'), parameters('subnet0Name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), parameters('subnet0Name'))]"
             ]
         },
         {
@@ -198,7 +198,7 @@
                 "addressPrefix": "[if(equals(parameters('subnet1Prefix'), 'None'), json('null'), parameters('subnet2Prefix'))]"
             },
             "dependsOn": [
-                "[resourceId(parameters('virtualNetworkResourceGroup'), /virtualNetworks/subnets', variables('vnetname'), parameters('subnet1Name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), parameters('subnet1Name'))]"
             ]
         }
     ],
