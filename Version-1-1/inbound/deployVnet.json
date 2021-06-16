@@ -105,7 +105,7 @@
         "location": "[resourceGroup().location]",
         "rgname": "[resourceGroup().id]",
         "vnetname": "[parameters('virtualNetworkName')]",
-        "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.network/virtualNetworks', parameters('vnetname'))]",
+        "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.network/virtualNetworks', variables('vnetname'))]",
         "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
