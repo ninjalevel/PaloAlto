@@ -98,6 +98,11 @@
         "type": "string",
         "metadata": {
             "description": "virtualNetworkResourceGroup"
+        },
+        "virtualNetworkId": {
+        "type": "string",
+        "metadata": {
+            "description": "virtualNetworkId"
         }
     }
     },
