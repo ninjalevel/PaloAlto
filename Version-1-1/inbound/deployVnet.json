@@ -6,11 +6,18 @@
             "type": "string",
             "defaultValue": "nsg-default1"
         },
-        "virtualNetworkName": {
+        "virtualNetworkResourceGroup": {
             "type": "string",
             "metadata": {
-                "description": "VNET name"
+                "description": "virtualNetworkResourceGroup"
             }
+        },
+        "virtualNetworkName": {
+        "type": "string",
+        "defaultValue": "vnet-FW",
+        "metadata": {
+            "description": "VNET name"
+        }
         },
         "virtualNetworkAddressPrefix": {
             "type": "string",
