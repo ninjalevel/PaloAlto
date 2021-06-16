@@ -93,7 +93,13 @@
              "metadata": {
                  "description": "If yes, then the template will deploy just the VM-Series firewall and not the app-gw."
              }
+        },
+        "virtualNetworkResourceGroup": {
+        "type": "string",
+        "metadata": {
+            "description": "virtualNetworkResourceGroup"
         }
+    }
     },
     "variables": {
         "location": "[resourceGroup().location]",
