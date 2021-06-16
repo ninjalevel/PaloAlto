@@ -93,24 +93,13 @@
              "metadata": {
                  "description": "If yes, then the template will deploy just the VM-Series firewall and not the app-gw."
              }
-        },
-        "virtualNetworkResourceGroup": {
-        "type": "string",
-        "metadata": {
-            "description": "virtualNetworkResourceGroup"
-        },
-        "virtualNetworkId": {
-        "type": "string",
-        "metadata": {
-            "description": "virtualNetworkId"
         }
-    }
     },
     "variables": {
         "location": "[resourceGroup().location]",
         "rgname": "[resourceGroup().id]",
         "vnetname": "[parameters('virtualNetworkName')]",
-        "vnetID": "[parameters('virtualNetworkId')]",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetname'))]",
         "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
