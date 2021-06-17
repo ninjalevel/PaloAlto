@@ -96,7 +96,6 @@
                 "description": "VNET name"
             }
         },
-        ,
         "virtualNetworkResourceGroup": {
             "type": "string",
             "defaultValue": "CWB-Panorama-Test2",
