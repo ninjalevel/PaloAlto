@@ -96,6 +96,13 @@
                 "description": "VNET name"
             }
         },
+        "virtualNetworkResourceGroup": {
+            "type": "string",
+            "defaultValue": "CWB-Panorama-Test2",
+            "metadata": {
+                "description": "virtualNetworkResourceGroup"
+            }
+        },
         "subnetNameMgmt": {
             "type": "string",
             "metadata": {
@@ -280,7 +287,7 @@
                                     "name": "[variables('ipConfigNamemgmt')]",
                                     "properties": {
                                         "subnet": {
-                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
+                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', parameters('virtualNetworkResourceGroup'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
                                         },
                                         "publicIPAddressConfiguration": {
                                             "name": "pavm_pip",
@@ -302,7 +309,7 @@
                                     "name": "[variables('ipConfigNameuntrust')]",
                                     "properties": {
                                         "subnet": {
-                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameUntrust'))]"
+                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', parameters('virtualNetworkResourceGroup'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameUntrust'))]"
                                         },
                                         "loadBalancerBackendAddressPools": [
                                         {
@@ -322,7 +329,7 @@
                                     "name": "[variables('ipConfigNametrust')]",
                                     "properties": {
                                         "subnet": {
-                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameTrust'))]"
+                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', parameters('virtualNetworkResourceGroup'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameTrust'))]"
                                         }
                                     }
                                 }]
