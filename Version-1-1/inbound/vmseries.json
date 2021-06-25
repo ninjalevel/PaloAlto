@@ -184,7 +184,7 @@
     "variables": {
         "rgname": "[resourceGroup().id]",
         "namingInfix": "[substring(uniqueString(parameters('guidValue')), 0, 5)]",
-        "autoscaleName": "n21-azurecc-ext-fw-vm-autoscale",
+        "autoscaleName": "cwb-azurecc-ext-fw-vm-autoscale",
         "nicNameMgmt": "nicmgmt",
         "nicNameUntrust": "nicuntrust",
         "nicNameTrust": "nictrust",
@@ -272,7 +272,7 @@
                         }
                     },
                     "osProfile": {
-                        "computerNamePrefix": "n21-azurecc-ext-fw-vm",
+                        "computerNamePrefix": "cwb-azurecc-ext-fw-vm",
                         "adminUsername": "[parameters('adminUsername')]",
                         "adminPassword": "[parameters('adminPassword')]",
                         "customData": "[base64(parameters('customDataField'))]"
@@ -291,7 +291,7 @@
                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', parameters('virtualNetworkResourceGroup'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameMgmt'))]"
                                         },
                                         "publicIPAddressConfiguration": {
-                                            "name": "n21-azurecc-ext-fw-vm_pip",
+                                            "name": "cwb-azurecc-ext-fw-vm_pip",
                                             "properties": {
                                                 "idleTimeoutInMinutes": 15
                                             }
